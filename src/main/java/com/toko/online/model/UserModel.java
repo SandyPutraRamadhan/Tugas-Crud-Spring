@@ -1,16 +1,18 @@
 package com.toko.online.model;
 
+import com.toko.online.auditing.Auditable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
-public class UserModel {
+public class UserModel extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "Username")
+    @Column(name = "username")
     private String userName;
 
     @Column(name = "email")

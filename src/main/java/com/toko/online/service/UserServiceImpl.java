@@ -15,8 +15,9 @@ public class UserServiceImpl implements UserService {
 
   @Override
     public Object getUser(Integer id) {
+    var respon = userRepository.findById(id).orElseThrow(() -> new NotFoundException("Id Not Found"));
     try {
-      return userRepository.findById(id).orElseThrow(() -> new NotFoundException("Id Not Found"));
+      return userRepository.save(respon);
     } catch (Exception e) {
       throw new InternalErrorException("Kesalahan Memunculkan Data");
     }
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
     try {
       return userRepository.findAll();
     }catch (Exception e) {
-      return "User 404 Not Found";
+      throw new InternalErrorException("User 404 Not Found");
     }
   }
 

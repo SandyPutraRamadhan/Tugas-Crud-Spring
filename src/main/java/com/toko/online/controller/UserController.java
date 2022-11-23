@@ -20,8 +20,8 @@ public class UserController {
 }
 
 @PostMapping
-    public UserModel addUser(@RequestBody UserModel userModel) {
-        return userService.addUser(userModel);
+    public Object addUser(@RequestBody UserModel userModel) {
+        return ResponHelper.ok(userService.addUser(userModel));
 }
 
 @GetMapping
