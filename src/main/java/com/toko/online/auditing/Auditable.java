@@ -15,12 +15,12 @@ import java.util.Date;
 @EntityListeners(AuditingEntityListener.class)
 public class Auditable {
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd-HH-mm-ss")
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private Date createdAt;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd-HH-mm-ss")
     @LastModifiedDate
     @Column(name = "updated_at")
     private Date updatedAt;
